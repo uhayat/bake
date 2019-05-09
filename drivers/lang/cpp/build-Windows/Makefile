@@ -17,6 +17,12 @@ bake_config = debug
 
 PROJECTS = bake_lang_cpp
 
+target_make_file = bake_lang_cpp.mak
+
+!IFDEF use_llvm
+target_make_file = bake_lang_cpp_llvm.mak
+!ENDIF
+
 .PHONY: clean $(PROJECTS) 
 
 all: $(PROJECTS)
@@ -25,11 +31,11 @@ all: $(PROJECTS)
 bake_lang_cpp:
 !IF "$(bake_config)" != ""
 	@ECHO "==== Building bake_lang_cpp ($(bake_config)) ===="
-	$(MAKE) /NOLOGO /F bake_lang_cpp.mak config=$(bake_config) all
+	$(MAKE) /NOLOGO /F $(target_make_file) config=$(bake_config) all
 !ENDIF
 
 clean:
-	$(MAKE) /NOLOGO /F bake_lang_cpp.mak clean
+	$(MAKE) /NOLOGO /F $(target_make_file)clean
 
 help:
 	@ECHO "Usage: nmake /f [config=name] [target]"
