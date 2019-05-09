@@ -32,8 +32,8 @@ char *UT_PLATFORM;
 char *UT_CONFIG;
 
 /* Paths pointing to bake environment and current target */
-char *UT_HOME_PATH;
-char *UT_TARGET_PATH;
+char *UT_HOME_PATH    = NULL;
+char *UT_TARGET_PATH  = NULL;
 char *UT_PLATFORM_PATH;
 char *UT_META_PATH;
 char *UT_INCLUDE_PATH;
@@ -1153,4 +1153,14 @@ void ut_load_deinit(void)
     free(UT_OS);
     free(UT_PLATFORM);
     free(UT_CONFIG);
+}
+
+char* ut_get_home_path()
+{
+	return UT_HOME_PATH;
+}
+
+char* ut_get_target_path()
+{
+	return UT_TARGET_PATH;
 }

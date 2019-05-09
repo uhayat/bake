@@ -291,6 +291,12 @@ int ut_load_intern(
     bool ignore_recursive,
     bool always_load);
 
+UT_EXPORT
+char* ut_get_home_path();
+
+UT_EXPORT
+char* ut_get_target_path();
+
 #ifdef __cplusplus
 }
 #endif
