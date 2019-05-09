@@ -274,6 +274,23 @@ int16_t ut_load_init(
 UT_EXPORT
 void ut_load_deinit(void);
 
+UT_EXPORT
+void ut_loaderOnExit(void* ctx);
+
+UT_EXPORT
+int ut_load_libraryAction(char* file, int argc, char* argv[], void *data);
+
+UT_EXPORT
+int ut_file_loader(char* file, int argc, char* argv[], void *data);
+
+UT_EXPORT
+int ut_load_intern(
+    const char* file,
+    int argc,
+    char* argv[],
+    bool ignore_recursive,
+    bool always_load);
+
 #ifdef __cplusplus
 }
 #endif
