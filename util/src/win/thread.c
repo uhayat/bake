@@ -231,6 +231,14 @@ int ut_rwmutex_write(
     return 0;
 }
 
+/* Write unlock */
+int ut_rwmutex_unlock(
+    ut_rwmutex mutex)
+{
+    ReleaseSRWLockExclusive((PSRWLOCK)&mutex->mutex);
+    return 0;
+}
+
 /* Create condition variable */
 int ut_cond_new(
     struct ut_cond_s *cond)
