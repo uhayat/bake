@@ -57,7 +57,11 @@ bool is_linux(void)
 /* Include compiler-specific implementation. Eventually this should be made
  * pluggable instead of being determined by the host platform. */
 #ifdef _WIN32
-#include "msvc/driver.c"
+    #ifdef USE_LLVM
+        #include "llvm/driver.c"
+	#else
+        #include "msvc/driver.c"
+	#endif
 #else
 #include "gcc/driver.c"
 #endif
