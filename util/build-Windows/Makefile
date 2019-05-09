@@ -17,6 +17,12 @@ bake_util_config = release
 
 PROJECTS = bake_util
 
+target_make_file = bake_util.mak
+
+!IFDEF use_llvm
+target_make_file = bake_util_llvm.mak
+!ENDIF
+
 .PHONY: all
 
 all: $(PROJECTS)
@@ -24,11 +30,11 @@ all: $(PROJECTS)
 bake_util:
 !IF "" != "$(bake_util_config)"
 	@echo "==== Building bake_util ($(bake_util_config)) ===="
-	@$(MAKE) /NOLOGO /f bake_util.mak config=$(bake_util_config) all
+	@$(MAKE) /NOLOGO /f $(target_make_file) config=$(bake_util_config) all
 !ENDIF
 
 clean:
-	@$(MAKE) /NOLOGO /f bake_util.mak clean
+	@$(MAKE) /NOLOGO /f $(target_make_file) clean
 
 help:
 	@echo "Usage: nmake [config=name] [target]"
