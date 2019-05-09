@@ -64,6 +64,7 @@ void         *jsw_rbfindPtr ( jsw_rbtree_t *tree, const void *key );
 int           jsw_rbhaskey ( jsw_rbtree_t *tree, const void *key, void** data );
 int           jsw_rbhaskey_w_cmp ( jsw_rbtree_t *tree, const void *key, void** data, ut_equals_cb f_cmp );
 
+UT_EXPORT
 void*         jsw_rbinsert ( jsw_rbtree_t *tree, void* key, void *data, bool overwrite, bool returnPtr );
 void*         jsw_rberase ( jsw_rbtree_t *tree, void *key );
 size_t        jsw_rbsize ( jsw_rbtree_t *tree );
