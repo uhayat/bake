@@ -19,6 +19,11 @@ extern "C" {
 #include <process.h>
 #include <errno.h>
 
+#define UT_MUTEX_INIT {(void*)-1,-1,0,0,0,0}
+#define UT_RWMUTEX_INIT {0}
+#define UT_COND_INIT {0}
+#define UT_SEM_INIT {{(void*)-1,-1,0,0,0,0}, {0}}
+
 typedef struct pthread_tag {
     HANDLE handle;
 } pthread_t;
